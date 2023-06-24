@@ -1,38 +1,43 @@
-import Alert from "./component/Alert";
+import Alert from "./component/toDoList/Alert";
 import { useState } from "react";
-import ToDoList from "./component/ToDoList";
+import ToDoList from "./component/toDoList/ToDoList";
+import WeatherForecastList from "./component/weatherApp/WeatherForecastList";
+import './App.css';
 
 function App() {
-  const handleClick = (toDoItem: string) => {
-    setState({
-      alertVisibility: true,
-      itemTitle: toDoItem
-    });
-  };
-  const [state, setState] = useState({
-    alertVisibility: false,
-    itemTitle: ""
-  });
+  return <div className="mainDiv"><WeatherForecastList></WeatherForecastList></div>
 
-  return (
-    <div style={{margin: '20px'}}>
-      {state.alertVisibility && (
-        <Alert
-          onClose={() => {
-            setState({
-              alertVisibility: false,
-              itemTitle: ""
-            });
-          }}
-        >
-          {state.itemTitle}
-        </Alert>
-      )}
-      <ToDoList onClick={handleClick}></ToDoList>
-    </div>
-  );
+  // to do list practise
+  // const handleClick = (toDoItem: string) => {
+  //   setState({
+  //     alertVisibility: true,
+  //     itemTitle: toDoItem
+  //   });
+  // };
+  // const [state, setState] = useState({
+  //   alertVisibility: false,
+  //   itemTitle: ""
+  // });
 
-  // hide show alert practice
+  // return (
+  //   <div style={{margin: '20px'}}>
+  //     {state.alertVisibility && (
+  //       <Alert
+  //         onClose={() => {
+  //           setState({
+  //             alertVisibility: false,
+  //             itemTitle: ""
+  //           });
+  //         }}
+  //       >
+  //         {state.itemTitle}
+  //       </Alert>
+  //     )}
+  //     <ToDoList onClick={handleClick}></ToDoList>
+  //   </div>
+  // );
+
+  // hide show alert practise
   // const handleClick = () => {setAlertVisibility(true)}
   // const [alertVisible, setAlertVisibility] = useState(false)
   //   return(

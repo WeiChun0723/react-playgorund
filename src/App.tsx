@@ -5,16 +5,29 @@ import ToDoList from "./component/ToDoList";
 
 function App() {
   const handleClick = (toDoItem: string) => {
-    setItemTitle(toDoItem);
-    setAlertVisibility(true);
+    setState({
+      alertVisibility: true,
+      itemTitle: toDoItem,
+    });
   };
-  const [alertVisible, setAlertVisibility] = useState(false);
-  const [itemTitle, setItemTitle] = useState("");
+  const [state, setState] = useState({
+    alertVisibility: false,
+    itemTitle: "",
+  });
 
   return (
     <div>
-      {alertVisible && (
-        <Alert onClose={() => setAlertVisibility(false)}>{itemTitle}</Alert>
+      {state.alertVisibility && (
+        <Alert
+          onClose={() => {
+            setState({
+              alertVisibility: false,
+              itemTitle: ""
+            });
+          }}
+        >
+          {state.itemTitle}
+        </Alert>
       )}
       <ToDoList onClick={handleClick}></ToDoList>
     </div>

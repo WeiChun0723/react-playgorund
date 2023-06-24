@@ -1,4 +1,3 @@
-import Button from "./component/Button";
 import Alert from "./component/Alert";
 import { useState } from "react";
 import ToDoList from "./component/ToDoList";
@@ -7,16 +6,16 @@ function App() {
   const handleClick = (toDoItem: string) => {
     setState({
       alertVisibility: true,
-      itemTitle: toDoItem,
+      itemTitle: toDoItem
     });
   };
   const [state, setState] = useState({
     alertVisibility: false,
-    itemTitle: "",
+    itemTitle: ""
   });
 
   return (
-    <div>
+    <div style={{margin: '20px'}}>
       {state.alertVisibility && (
         <Alert
           onClose={() => {
